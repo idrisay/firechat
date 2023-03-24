@@ -3,7 +3,7 @@ import { db } from '../utils/firebase';
 import { onValue, ref } from 'firebase/database';
 import MessageInput from '@/components/MessageInput';
 
-const index = () => {
+const Index = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index
