@@ -21,8 +21,9 @@ export function AppWrapper({ children }) {
         return response.json();
       })
       .then((data) => {
-        console.log(data)
-        setUser(data)});
+        // console.log(data);
+        setUser(data);
+      });
   }, []);
 
   let sharedStates = {

@@ -8,7 +8,7 @@ const Login = () => {
     password: "",
   });
 
-  console.log(process.env.AUTH_API_URL);
+  // console.log(process.env.AUTH_API_URL);
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.id]: e.target.value });
@@ -26,7 +26,7 @@ const Login = () => {
     } ).then((res) => {
       return res.json()
     }).then((json) => {
-      console.log(json)
+      // console.log(json)
       localStorage.setItem('access_token', json.token)
       router.push('/')
       // toast(json?.message);
