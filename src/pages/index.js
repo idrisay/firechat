@@ -7,12 +7,8 @@ import { useRouter } from "next/router";
 
 const Index = () => {
   const [messages, setMessages] = useState([]);
-  const router = useRouter()
-  const {user} = useAppContext();
-  
-  if(user && !user.loggedIn){
-    router.push('/login')
-  }
+  const router = useRouter();
+  const { user } = useAppContext();
 
   useEffect(() => {
     const query = ref(db, "messages");
@@ -27,19 +23,29 @@ const Index = () => {
     });
   }, []);
 
-  return (
-    <div>
-      {messages?.map((msg, index) => (
-        <div key={index}>
-          <p>{msg.user_id}</p>
-          <p>{msg.message}</p>
-        </div>
-      ))}
-      <div>
-        <MessageInput />
+  if (!user) {
+    return (
+      <div className="fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
       </div>
-    </div>
-  );
+    );
+  } else if (user && !user.loggedIn) {
+    router.push("/login");
+  } else {
+    return (
+      <div>
+        {messages?.map((msg, index) => (
+          <div key={index}>
+            <p>{msg.user_id}</p>
+            <p>{msg.message}</p>
+          </div>
+        ))}
+        <div>
+          <MessageInput />
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Index;
