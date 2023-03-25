@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-const login = () => {
+const Login = () => {
   const router = useRouter()
   const [credentials, setCredentials] = useState({
     email: "",
@@ -200,4 +200,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
