@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main className='pt-[8vh]'>{children}</main>
+      <main className='pt-[9vh]'>{children}</main>
       {/* <Footer /> */}
     </>
   )

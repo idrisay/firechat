@@ -24,14 +24,15 @@ const MessageInput = () => {
   };
 
   return (
-    <div>
-      <input
+    <div className="flex flex-col">
+      <textarea
         type="text"
-        className="border-2"
+        className="border-2 rounded-md p-2"
+        placeholder="message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button onClick={handleSendMessage}>Send message</button>
+      <button className="p-2 border-green-400 border mt-2 rounded-md text-green-600" onClick={handleSendMessage}>Send message</button>
     </div>
   );
 };

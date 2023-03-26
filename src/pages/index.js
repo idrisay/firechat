@@ -31,7 +31,7 @@ const Index = () => {
     );
   } else {
     return (
-      <div>
+      <div className="w-full max-w-xl mx-auto border p-4">
         {messages?.map((msg, index) => (
           <div key={index}>
             <p>{msg.user_id}</p>
