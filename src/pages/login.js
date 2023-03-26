@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <div>
-      <section className="min-h-screen flex items-stretch text-white ">
+      <section className="min-h-screen flex items-stretch text-white fixed top-0 left-0 w-full">
         <div
           className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
           style={{
