@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { createContext, useContext, useState, useEffect } from "react";
 
 const AppContext = createContext();
@@ -8,6 +9,7 @@ if (typeof window !== "undefined") {
 
 export function AppWrapper({ children }) {
   const [user, setUser] = useState();
+  const router = useRouter()
 
   useEffect(() => {
     fetch(`${process.env.AUTH_API_URL}/auth/check-login`, {
@@ -25,6 +27,13 @@ export function AppWrapper({ children }) {
         setUser(data);
       });
   }, []);
+
+  useEffect(() => {
+    if(user && !user.loggedIn){
+        router.push("/login");
+    }
+  }, [user])
+  
 
   let sharedStates = {
     user,
