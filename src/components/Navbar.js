@@ -17,9 +17,9 @@ export default function Navbar() {
         } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
       >
         <div className="flex items-center justify-center filter drop-shadow-md bg-white h-20">
-          <a className="text-xl font-semibold" href="/">
+          <Link className="text-xl font-semibold" href="/">
             <img src="/next.svg" alt="" className=" w-16" />
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col ml-4">
           <Link
