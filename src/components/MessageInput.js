@@ -12,7 +12,8 @@ const MessageInput = () => {
     const db = getDatabase();
     const postData = {
       message: message,
-      user_id: `${user.firstName} ${user.lastName}`,
+      user_name: `${user.firstName} ${user.lastName}`,
+      user_email: `${user.email}`,
     };
 
     const newPostKey = push(child(ref(db), "messages")).key;
@@ -27,8 +28,8 @@ const MessageInput = () => {
     <div className="flex flex-col">
       <textarea
         type="text"
-        className="border-2 rounded-md p-2"
-        placeholder="message..."
+        className="border-2 rounded-md p-2 resize-none"
+        placeholder="Message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />

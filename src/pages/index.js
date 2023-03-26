@@ -4,6 +4,7 @@ import { onValue, ref } from "firebase/database";
 import MessageInput from "@/components/MessageInput";
 import { useAppContext } from "@/utils/context";
 import { useRouter } from "next/router";
+import MessageBox from "@/components/MessageBox";
 
 const Index = () => {
   const [messages, setMessages] = useState([]);
@@ -32,15 +33,8 @@ const Index = () => {
   } else {
     return (
       <div className="w-full max-w-xl mx-auto border p-4">
-        {messages?.map((msg, index) => (
-          <div key={index}>
-            <p>{msg.user_id}</p>
-            <p>{msg.message}</p>
-          </div>
-        ))}
-        <div>
-          <MessageInput />
-        </div>
+        <MessageBox messages={messages} />
+        <MessageInput />
       </div>
     );
   }
